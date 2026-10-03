@@ -2,10 +2,110 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ігрознайка — зворотній зв’язок</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Внутрішня таблиця стилів: зворотній зв’язок (Flex) */
+    .page-feedback {
+      min-height: 100vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+
+    .page-feedback header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: hsl(92, 35%, 92%);
+      border-bottom: 1px solid seagreen;
+    }
+
+    .page-feedback header .logo {
+      order: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .page-feedback header h1 {
+      order: 2;
+      flex-grow: 1;
+      align-self: center;
+    }
+
+    .page-feedback main {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: stretch;
+      padding: 20px 24px 40px;
+    }
+
+    .feedback-form {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: stretch;
+      align-content: flex-start;
+      gap: 16px;
+      max-width: 920px;
+    }
+
+    .feedback-form fieldset {
+      order: 1;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 100%;
+      border: 1px solid seagreen;
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+
+    .field-goal {
+      order: 2;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 40%;
+      align-self: flex-start;
+    }
+
+    .field-details {
+      order: 3;
+      flex-grow: 2;
+      flex-shrink: 1;
+      flex-basis: 55%;
+    }
+
+    .field-consent {
+      order: 4;
+      flex-grow: 1;
+      align-self: center;
+    }
+
+    .field-submit {
+      order: 5;
+      flex-grow: 0;
+      flex-shrink: 0;
+      align-self: flex-end;
+    }
+
+    .feedback-form label + input,
+    .feedback-form label + select,
+    .feedback-form label + textarea {
+      margin-top: 4px;
+    }
+
+    fieldset ~ .field-goal {
+      margin-top: 0;
+    }
+  </style>
 </head>
-<body>
+<body class="page-feedback">
   <header>
     <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
     <h1>Ігрознайка</h1>
@@ -13,7 +113,7 @@
 
   <main>
     <h2>Зворотній зв’язок</h2>
-    <form action="#" method="post">
+    <form class="feedback-form" action="#" method="post">
       <fieldset>
         <legend>Персональна інформація</legend>
         <p>
@@ -35,7 +135,7 @@
         </p>
       </fieldset>
 
-      <p>
+      <p class="field-goal">
         <label for="goal">Мета зворотнього зв’язку</label><br>
         <select id="goal" name="goal" required>
           <option value="">Оберіть мету</option>
@@ -46,20 +146,20 @@
         </select>
       </p>
 
-      <p>
+      <p class="field-details">
         <label for="details">Детально</label><br>
         <textarea id="details" name="details" maxlength="500" required></textarea>
         <span class="note">не більше 500 символів</span>
       </p>
 
-      <p>
+      <p class="field-consent">
         <label>
           <input type="checkbox" name="consent" required>
           Згода на обробку інформації
         </label>
       </p>
 
-      <p>
+      <p class="field-submit">
         <button type="submit">Надіслати</button>
       </p>
     </form>

@@ -1,35 +1,45 @@
+/* Органічний стиль: природні зелені відтінки, м’які форми, два шрифти */
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;700&display=swap");
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #222;
-  background: #fff;
+  color: rgb(46, 64, 46);
+  background-color: linen;
+  background-image:
+    radial-gradient(circle at 12% 18%, hsl(92, 40%, 88%) 0, transparent 42%),
+    radial-gradient(circle at 88% 8%, hsl(35, 55%, 90%) 0, transparent 38%);
 }
 
-header,
-nav,
-main,
-aside,
-footer {
-  padding: 16px 24px;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  border-bottom: 1px solid #ccc;
+h1,
+h2,
+h3,
+caption {
+  font-family: "Merriweather", Georgia, serif;
+  color: seagreen;
 }
 
 .logo {
   width: 56px;
   height: 56px;
+  animation: sway 5s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
 }
 
 h1 {
@@ -37,47 +47,40 @@ h1 {
   font-size: 24px;
 }
 
-.header-actions {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-}
-
 button,
 .button {
   display: inline-block;
   padding: 8px 14px;
+  font-family: "Nunito", sans-serif;
   font-size: 14px;
-  color: #000;
-  background: #eee;
-  border: 1px solid #888;
+  color: #1b4332;
+  background: hsl(92, 42%, 78%);
+  border: 1px solid seagreen;
+  border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-nav {
-  border-bottom: 1px solid #ccc;
+button:hover,
+.button:hover {
+  background-color: #95d5b2;
+  border-color: darkgreen;
+  color: darkgreen;
+  box-shadow: 0 6px 14px rgba(27, 67, 50, 0.28);
 }
 
 nav a {
   margin-right: 16px;
+  color: rgb(27, 67, 50);
 }
 
-.layout {
-  display: flex;
+a[target="_blank"] {
+  text-decoration: underline dotted;
 }
 
-main {
-  flex: 1;
-}
-
-aside {
-  width: 240px;
-  border-left: 1px solid #ccc;
-}
-
-article {
-  margin-bottom: 24px;
+a[href*="feedback"] {
+  font-weight: 600;
 }
 
 table {
@@ -93,43 +96,23 @@ caption {
 
 th,
 td {
-  border: 1px solid #888;
+  border: 1px solid hsl(150, 20%, 70%);
   padding: 6px 8px;
   text-align: left;
   vertical-align: top;
 }
 
-thead {
-  background: #f3f3f3;
-}
-
+thead,
 tfoot {
-  background: #f3f3f3;
+  background: #d8f3dc;
 }
 
-.courses {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.courses li {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #ddd;
-}
-
-.courses img {
-  width: 160px;
-  height: 120px;
-  object-fit: cover;
-  border: 1px solid #ccc;
-}
-
-fieldset {
-  margin-bottom: 16px;
+input[required],
+select[required],
+textarea[required] {
+  border: 1px solid seagreen;
+  border-radius: 8px;
+  padding: 6px 8px;
 }
 
 textarea {
@@ -141,4 +124,12 @@ textarea {
 
 .note {
   color: #555;
+}
+
+.header-actions {
+  margin-left: auto;
+}
+
+.header-actions > button + button {
+  margin-left: 8px;
 }

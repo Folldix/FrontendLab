@@ -2,13 +2,108 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ігрознайка — наші курси</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Внутрішня таблиця стилів: курси (Grid + індивідуальні вимоги) */
+    .page-courses {
+      padding-top: 88px;
+    }
+
+    .page-courses header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 24px;
+      background: rgba(244, 241, 232, 0.97);
+      border-bottom: 1px solid seagreen;
+    }
+
+    .page-courses main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 16px 24px 40px;
+    }
+
+    .page-courses nav {
+      display: flex;
+      gap: 16px;
+    }
+
+    .page-courses a:visited {
+      color: darkred;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .courses > li {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 12px;
+      padding: 12px;
+      background: hsl(92, 40%, 96%);
+      border-top: 2px solid darkviolet;
+      border-bottom: 2px solid darkviolet;
+      border-right: thin solid darkviolet;
+      border-left: 2px dashed darkviolet;
+    }
+
+    .courses h3 {
+      font-weight: 700;
+      font-size: 1.35rem;
+      line-height: 1.8;
+      font-style: italic;
+      margin: 0 0 8px;
+    }
+
+    img[alt*="Курс"] {
+      width: 160px;
+      height: 120px;
+      object-fit: cover;
+      filter: saturate(100%);
+    }
+
+    @keyframes richer {
+      from {
+        filter: saturate(100%);
+      }
+      to {
+        filter: saturate(150%);
+      }
+    }
+
+    img[alt*="Курс"]:hover {
+      animation: richer 0.45s ease forwards;
+    }
+
+    .courses ~ form {
+      justify-self: start;
+    }
+  </style>
 </head>
-<body>
+<body class="page-courses">
   <header>
     <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
     <h1>Ігрознайка</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="feedback.html">Зворотній зв’язок</a>
+    </nav>
   </header>
 
   <main>

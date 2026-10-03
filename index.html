@@ -2,10 +2,113 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ігрознайка — головна</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Внутрішня таблиця стилів: головна (position, float, overflow) */
+    .page-home {
+      padding-top: 88px;
+    }
+
+    .page-home header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: block;
+      padding: 12px 24px;
+      background: rgba(244, 241, 232, 0.96);
+      border-bottom: 1px solid seagreen;
+    }
+
+    .page-home .logo,
+    .page-home h1,
+    .page-home .header-actions {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .page-home .header-actions {
+      float: right;
+    }
+
+    .page-home nav {
+      position: relative;
+      z-index: 5;
+      padding: 12px 24px;
+      background: hsl(92, 35%, 90%);
+    }
+
+    .page-home .layout {
+      position: relative;
+      overflow: hidden;
+      padding: 0 24px;
+    }
+
+    .page-home main {
+      display: block;
+      float: left;
+      width: 72%;
+    }
+
+    .page-home aside {
+      float: right;
+      width: 24%;
+      position: sticky;
+      top: 100px;
+      z-index: 2;
+      padding: 12px 0;
+    }
+
+    #meta {
+      margin: 28px 0;
+      padding: 0;
+      max-height: 220px;
+      overflow-y: scroll;
+    }
+
+    #meta ul {
+      list-style-type: disc;
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    h2 + p {
+      margin-top: 8px;
+    }
+
+    #temy {
+      position: relative;
+      margin: 24px 0;
+      transition: transform 0.4s ease;
+    }
+
+    #temy:hover {
+      transform: translateX(2vw);
+    }
+
+    #temy > p::first-letter {
+      color: darkgreen;
+      font-size: 1.6em;
+      font-weight: 700;
+      text-shadow: 2px 2px 3px rgba(0, 60, 0, 0.35);
+    }
+
+    footer {
+      clear: both;
+      padding: 16px 24px;
+      outline: none;
+      transition: box-shadow 0.5s ease 2s;
+    }
+
+    footer:focus {
+      box-shadow: 0 10px 24px rgba(20, 50, 20, 0.45);
+    }
+  </style>
 </head>
-<body>
+<body class="page-home">
   <header>
     <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
     <h1>Ігрознайка</h1>
@@ -32,7 +135,7 @@
           <u>безпечні розваги</u> разом із батьками.
         </p>
         <p>Завдання для досягнення мети:</p>
-        <ul style="list-style-type: upper-roman;">
+        <ul>
           <li>надати короткі ігрові уроки за віком дитини;</li>
           <li>поєднати навчання з розвагами та простими завданнями;</li>
           <li>допомогти батькам стежити за прогресом і темами;</li>
@@ -127,7 +230,7 @@
     </aside>
   </div>
 
-  <footer>
+  <footer tabindex="0">
     <p>Адреса: вул. Навчальна, 12, м. Київ, 01001</p>
     <p>Телефони: +38 (044) 111-22-33, +38 (050) 444-55-66</p>
   </footer>
