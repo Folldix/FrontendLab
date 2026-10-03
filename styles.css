@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+  background: #fff;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+  padding: 16px 24px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+button,
+.button {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #000;
+  background: #eee;
+  border: 1px solid #888;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav {
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  margin-right: 16px;
+}
+
+.layout {
+  display: flex;
+}
+
+main {
+  flex: 1;
+}
+
+aside {
+  width: 240px;
+  border-left: 1px solid #ccc;
+}
+
+article {
+  margin-bottom: 24px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid #888;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead {
+  background: #f3f3f3;
+}
+
+tfoot {
+  background: #f3f3f3;
+}
+
+.courses {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.courses li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.courses img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+fieldset {
+  margin-bottom: 16px;
+}
+
+textarea {
+  width: 400px;
+  height: 120px;
+  max-width: 100%;
+  resize: none;
+}
+
+.note {
+  color: #555;
+}

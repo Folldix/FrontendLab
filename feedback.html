@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Ігрознайка — зворотній зв’язок</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
+    <h1>Ігрознайка</h1>
+  </header>
+
+  <main>
+    <h2>Зворотній зв’язок</h2>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Персональна інформація</legend>
+        <p>
+          <label for="parent">Прізвище та ім’я батьків</label><br>
+          <input type="text" id="parent" name="parent" required>
+        </p>
+        <p>
+          <label for="email">E-mail батьків</label><br>
+          <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+          <label for="age">Вік дитини</label><br>
+          <input type="number" id="age" name="age" min="3" max="16" required>
+        </p>
+        <p>
+          Стать дитини<br>
+          <label><input type="radio" name="gender" value="girl" required> дівчинка</label>
+          <label><input type="radio" name="gender" value="boy"> хлопчик</label>
+        </p>
+      </fieldset>
+
+      <p>
+        <label for="goal">Мета зворотнього зв’язку</label><br>
+        <select id="goal" name="goal" required>
+          <option value="">Оберіть мету</option>
+          <option value="cooperation">співпраця</option>
+          <option value="complaint">скарга на неякісний контент</option>
+          <option value="suggestion">пропозиція</option>
+          <option value="error">наявність помилки</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="details">Детально</label><br>
+        <textarea id="details" name="details" maxlength="500" required></textarea>
+        <span class="note">не більше 500 символів</span>
+      </p>
+
+      <p>
+        <label>
+          <input type="checkbox" name="consent" required>
+          Згода на обробку інформації
+        </label>
+      </p>
+
+      <p>
+        <button type="submit">Надіслати</button>
+      </p>
+    </form>
+  </main>
+</body>
+</html>
