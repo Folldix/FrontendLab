@@ -106,6 +106,142 @@
     footer:focus {
       box-shadow: 0 10px 24px rgba(20, 50, 20, 0.45);
     }
+
+    .portal-banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      margin: 0 24px 8px;
+      padding: 28px 24px;
+      background: hsl(92, 35%, 88%);
+      border: 1px solid seagreen;
+      border-radius: 16px;
+    }
+
+    .portal-banner-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .portal-banner .logo {
+      width: 72px;
+      height: 72px;
+    }
+
+    .portal-banner h2.portal-title {
+      display: inline-block;
+      margin: 8px 0 0;
+      font-size: 32px;
+      vertical-align: middle;
+    }
+
+    .falling-toys {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .falling-toys .toy {
+      position: absolute;
+      top: -90px;
+      height: 80px;
+      width: auto;
+      animation-name: toy-fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .falling-toys .toy:nth-child(1) { left: 8%; animation-duration: 6.2s; animation-delay: 0s; }
+    .falling-toys .toy:nth-child(2) { left: 28%; animation-duration: 7.4s; animation-delay: 1.4s; }
+    .falling-toys .toy:nth-child(3) { left: 52%; animation-duration: 5.8s; animation-delay: 2.2s; }
+    .falling-toys .toy:nth-child(4) { left: 74%; animation-duration: 8s; animation-delay: 0.8s; }
+    .falling-toys .toy:nth-child(5) { left: 88%; animation-duration: 6.8s; animation-delay: 3.1s; }
+    .falling-toys .toy:nth-child(6) { left: 40%; animation-duration: 7.1s; animation-delay: 4.5s; }
+
+    @keyframes toy-fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      8% {
+        opacity: 1;
+      }
+      92% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(300px) rotate(28deg);
+        opacity: 0;
+      }
+    }
+
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 28px 0 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .author-card {
+      width: 160px;
+      height: 210px;
+      perspective: 800px;
+    }
+
+    .author-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .author-card:hover .author-inner {
+      transform: rotateY(180deg);
+    }
+
+    .author-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid seagreen;
+      border-radius: 12px;
+      overflow: hidden;
+      background: hsl(92, 40%, 96%);
+    }
+
+    .author-face img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .author-face p {
+      margin: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .author-back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      transform: rotateY(180deg);
+      background: seagreen;
+      color: #f8fff8;
+    }
+
+    .author-back p {
+      font-style: italic;
+      color: #f8fff8;
+    }
   </style>
 </head>
 <body class="page-home">
@@ -123,7 +259,24 @@
     <a href="feedback.html">Зворотній зв’язок</a>
     <a href="#meta">Мета порталу</a>
     <a href="#temy">Теми навчання</a>
+    <a href="#authors">Автори курсів</a>
   </nav>
+
+  <section class="portal-banner" aria-label="Назва порталу">
+    <div class="falling-toys" aria-hidden="true">
+      <img class="toy" src="img/toy-cube.svg" alt="">
+      <img class="toy" src="img/toy-pyramid.svg" alt="">
+      <img class="toy" src="img/toy-puzzle.svg" alt="">
+      <img class="toy" src="img/toy-abacus.svg" alt="">
+      <img class="toy" src="img/toy-cube.svg" alt="">
+      <img class="toy" src="img/toy-pyramid.svg" alt="">
+    </div>
+    <div class="portal-banner-content">
+      <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
+      <h2 class="portal-title">Ігрознайка</h2>
+      <p>Веб-портал для навчання дітей через гру</p>
+    </div>
+  </section>
 
   <div class="layout">
     <main>
@@ -221,6 +374,57 @@
           </tfoot>
         </table>
       </section>
+
+      <section id="authors">
+        <h2>Автори курсів</h2>
+        <p>Наведіть курсор на зображення автора, щоб побачити девіз.</p>
+        <ul class="authors">
+          <li class="author-card">
+            <div class="author-inner">
+              <div class="author-face author-front">
+                <img src="img/author-olena.svg" alt="Авторка курсу Бондар Олена">
+                <p>Бондар Олена</p>
+              </div>
+              <div class="author-face author-back">
+                <p>«Гра — найкоротший шлях до знання.»</p>
+              </div>
+            </div>
+          </li>
+          <li class="author-card">
+            <div class="author-inner">
+              <div class="author-face author-front">
+                <img src="img/author-andriy.svg" alt="Автор курсу Гнатюк Андрій">
+                <p>Гнатюк Андрій</p>
+              </div>
+              <div class="author-face author-back">
+                <p>«Рахувати можна весело і щодня.»</p>
+              </div>
+            </div>
+          </li>
+          <li class="author-card">
+            <div class="author-inner">
+              <div class="author-face author-front">
+                <img src="img/author-vira.svg" alt="Авторка курсу Андрусенко Віра">
+                <p>Андрусенко Віра</p>
+              </div>
+              <div class="author-face author-back">
+                <p>«Hello — це перший крок до світу.»</p>
+              </div>
+            </div>
+          </li>
+          <li class="author-card">
+            <div class="author-inner">
+              <div class="author-face author-front">
+                <img src="img/author-ihor.svg" alt="Автор курсу Савченко Ігор">
+                <p>Савченко Ігор</p>
+              </div>
+              <div class="author-face author-back">
+                <p>«Думай, шукай, знаходь закономірність.»</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
 
     <aside>
@@ -234,5 +438,6 @@
     <p>Адреса: вул. Навчальна, 12, м. Київ, 01001</p>
     <p>Телефони: +38 (044) 111-22-33, +38 (050) 444-55-66</p>
   </footer>
+  <script src="js/home.js"></script>
 </body>
 </html>

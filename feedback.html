@@ -108,6 +108,52 @@
     fieldset ~ .field-goal {
       margin-top: 0;
     }
+
+    .field-details {
+      position: relative;
+    }
+
+    .details-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    #details {
+      transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .details-wrap:hover #details,
+    .details-wrap:focus-within #details,
+    #details:hover {
+      background-color: #e7f8ee;
+      border: 2px solid seagreen;
+      box-shadow: 4px 8px 16px rgba(27, 67, 50, 0.35);
+    }
+
+    .details-tooltip {
+      position: absolute;
+      left: calc(100% + 12px);
+      top: 12px;
+      width: 220px;
+      padding: 8px 10px;
+      background: #1b4332;
+      color: #f8fff8;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.35;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 4;
+    }
+
+    .details-wrap:hover .details-tooltip,
+    .details-wrap:focus-within .details-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body class="page-feedback">
@@ -157,7 +203,11 @@
 
       <p class="field-details">
         <label for="details">Детально</label><br>
-        <textarea id="details" name="details" maxlength="500" required></textarea>
+        <span class="details-wrap">
+          <textarea id="details" name="details" maxlength="500" required></textarea>
+          <span class="details-tooltip">Ваша думка для нас важлива! Конкретизуйте мету звернення, будь ласка</span>
+        </span>
+        <br>
         <span class="note">не більше 500 символів</span>
       </p>
 

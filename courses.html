@@ -94,6 +94,54 @@
     .courses ~ form {
       justify-self: start;
     }
+
+    .page-courses {
+      position: relative;
+    }
+
+    .courses-accordion {
+      position: absolute;
+      top: 96px;
+      left: 16px;
+      width: 250px;
+      z-index: 20;
+      background: hsl(92, 40%, 96%);
+      border: 1px solid seagreen;
+      border-radius: 12px;
+      padding: 4px 8px;
+    }
+
+    .courses-accordion h2 {
+      font-size: 1rem;
+      margin: 8px 4px;
+    }
+
+    .courses-accordion details {
+      border-bottom: 1px solid hsl(150, 20%, 70%);
+    }
+
+    .courses-accordion details:last-of-type {
+      border-bottom: none;
+    }
+
+    .courses-accordion summary {
+      cursor: pointer;
+      font-weight: 700;
+      padding: 8px 4px;
+    }
+
+    .courses-accordion details[open] summary {
+      color: darkgreen;
+    }
+
+    .courses-accordion details p {
+      margin: 0 4px 10px;
+      font-size: 14px;
+    }
+
+    .page-courses main {
+      padding-left: 286px;
+    }
   </style>
 </head>
 <body class="page-courses">
@@ -105,6 +153,34 @@
       <a href="feedback.html">Зворотній зв’язок</a>
     </nav>
   </header>
+
+  <aside class="courses-accordion" aria-label="Короткий опис курсів">
+    <h2>Опис курсів</h2>
+    <details open>
+      <summary>Літери та читання</summary>
+      <p>Ігри зі звуками, складами і першими словами для старших дошкільнят.</p>
+    </details>
+    <details>
+      <summary>Весела математика</summary>
+      <p>Рахунок, додавання і порівняння чисел через предмети та міні-ігри.</p>
+    </details>
+    <details>
+      <summary>Англійська для малят</summary>
+      <p>Картки слів, вітання, кольори й тварини з повторенням уголос.</p>
+    </details>
+    <details>
+      <summary>Логіка та увага</summary>
+      <p>Головоломки, послідовності й лабіринти для тренування мислення.</p>
+    </details>
+    <details>
+      <summary>Світ природи</summary>
+      <p>Пори року, рослини й тварини через вікторини та спостереження.</p>
+    </details>
+    <details>
+      <summary>Музичні ігри</summary>
+      <p>Ритм, пісні й інструменти в коротких слухових вправах.</p>
+    </details>
+  </aside>
 
   <main>
     <h2>Наші курси</h2>
@@ -217,5 +293,22 @@
     </section>
   </main>
   <script src="js/courses.js"></script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll(".courses-accordion details");
+      items.forEach(function (item) {
+        item.addEventListener("toggle", function () {
+          if (!item.open) {
+            return;
+          }
+          items.forEach(function (other) {
+            if (other !== item) {
+              other.open = false;
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
