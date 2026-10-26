@@ -39,6 +39,11 @@
       align-self: center;
     }
 
+    .page-feedback header nav {
+      order: 3;
+      margin-left: auto;
+    }
+
     .page-feedback main {
       display: flex;
       flex-flow: column nowrap;
@@ -109,6 +114,10 @@
   <header>
     <img class="logo" src="logo.svg" alt="Логотип Ігрознайка">
     <h1>Ігрознайка</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="courses.html">Навчальні матеріали</a>
+    </nav>
   </header>
 
   <main>
@@ -163,6 +172,57 @@
         <button type="submit">Надіслати</button>
       </p>
     </form>
+
+    <section class="lab-panel" id="children-lab">
+      <h2>Облікові записи дітей (ООП)</h2>
+      <p>10 записів: прізвище, ім’я, вік, E-mail, мета зворотнього зв’язку, дата і час звернення.</p>
+
+      <div class="lab-table-wrap">
+        <table>
+          <caption>Облікові записи</caption>
+          <thead>
+            <tr>
+              <th>Прізвище</th>
+              <th>Ім’я</th>
+              <th>Вік</th>
+              <th>E-mail</th>
+              <th>Мета</th>
+              <th>Дата</th>
+              <th>Час</th>
+            </tr>
+          </thead>
+          <tbody id="children-lab-body"></tbody>
+        </table>
+      </div>
+
+      <div class="lab-inline">
+        <label>Місяць
+          <select id="filter-month">
+            <option value="">Оберіть місяць</option>
+            <option value="1">січень</option>
+            <option value="2">лютий</option>
+            <option value="3">березень</option>
+            <option value="4">квітень</option>
+            <option value="5">травень</option>
+            <option value="6">червень</option>
+            <option value="7">липень</option>
+            <option value="8">серпень</option>
+            <option value="9">вересень</option>
+            <option value="10">жовтень</option>
+            <option value="11">листопад</option>
+            <option value="12">грудень</option>
+          </select>
+        </label>
+        <label>Час звернення <input id="filter-time" type="time"></label>
+        <button type="button" id="btn-filter-month">Показати звернення за місяць і час</button>
+        <button type="button" id="btn-min-age">Мінімальний вік, e-mail і дата</button>
+        <button type="button" id="btn-age-classes">Кількість дітей у вікових класах</button>
+        <button type="button" id="btn-sort-email">Сортувати за E-mail і показати мету</button>
+      </div>
+
+      <pre class="lab-output" id="children-lab-result"></pre>
+    </section>
   </main>
+  <script src="js/children.js"></script>
 </body>
 </html>

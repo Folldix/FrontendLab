@@ -20,7 +20,7 @@
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 12px;
+      gap: 12;
       padding: 12px 24px;
       background: rgba(244, 241, 232, 0.97);
       border-bottom: 1px solid seagreen;
@@ -161,6 +161,61 @@
     <form action="index.html">
       <button type="submit">Перейти на головну сторінку</button>
     </form>
+
+    <section class="lab-panel" id="courses-lab">
+      <h2>Облік курсів (масиви та функції)</h2>
+      <p>10 записів: внутрішній id, назва, автор, викладачі, тип завдань, читачі за добу_1 і добу_2, тривалість вивчення.</p>
+
+      <div class="lab-table-wrap">
+        <table>
+          <caption>Поточний список курсів</caption>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Назва</th>
+              <th>Автор</th>
+              <th>Викладачі</th>
+              <th>Тип завдань</th>
+              <th>Доба_1</th>
+              <th>Доба_2</th>
+              <th>Тривалість</th>
+            </tr>
+          </thead>
+          <tbody id="courses-lab-body"></tbody>
+        </table>
+      </div>
+
+      <div class="lab-controls">
+        <button type="button" id="btn-sort-duration">Впорядкувати за тривалістю та середня цікавість</button>
+        <button type="button" id="btn-min-day2">Id курсу з мінімумом читачів за добу_2</button>
+        <button type="button" id="btn-reset-courses">Скинути до 10 записів</button>
+      </div>
+
+      <h3>Додати курс</h3>
+      <p>Якщо бракує хоч одного поля — запис стає на початок. Якщо дані повні — вставляється в список за автором.</p>
+      <form class="lab-form" id="course-add-form">
+        <label>Внутрішній id <input name="id" type="number"></label>
+        <label>Назва <input name="name" type="text"></label>
+        <label>Автор <input name="author" type="text"></label>
+        <label>Викладачі (через кому) <input name="teachers" type="text"></label>
+        <label>Тип завдань <input name="taskType" type="text"></label>
+        <label>Читачі за добу_1 <input name="readersDay1" type="number" min="0"></label>
+        <label>Читачі за добу_2 <input name="readersDay2" type="number" min="0"></label>
+        <label>Години <input name="hours" type="number" min="0"></label>
+        <label>Хвилини <input name="minutes" type="number" min="0" max="59"></label>
+        <p><button type="submit">Додати курс</button></p>
+      </form>
+
+      <h3>Одночасне вивчення кількох курсів</h3>
+      <p>До 3 курсів тривалість не змінюється; інакше кожна тривалість збільшується у 1,5 раза.</p>
+      <div class="lab-select" id="courses-select"></div>
+      <div class="lab-controls">
+        <button type="button" id="btn-simultaneous">Обчислити тривалість</button>
+      </div>
+
+      <pre class="lab-output" id="courses-lab-result"></pre>
+    </section>
   </main>
+  <script src="js/courses.js"></script>
 </body>
 </html>
