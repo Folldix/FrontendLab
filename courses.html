@@ -142,7 +142,19 @@
     .page-courses main {
       padding-left: 286px;
     }
-  </style>
+    @media (max-width: 760px) {
+      .page-courses { padding-top: 0; }
+      .page-courses header { position: relative; display: flex; flex-wrap: wrap; gap: 8px 12px; padding: 12px 16px; }
+      .page-courses nav { flex-wrap: wrap; }
+      .courses-accordion { position: static; width: auto; margin: 16px; }
+      .page-courses main { min-height: 0; padding: 16px 16px 32px; }
+      .courses { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .page-courses main { padding-right: 12px; padding-left: 12px; }
+      .courses > li { grid-template-columns: minmax(0, 1fr); }
+      img[alt*="Курс"] { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+    }  </style>
 </head>
 <body class="page-courses">
   <header>

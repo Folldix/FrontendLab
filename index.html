@@ -242,7 +242,24 @@
       font-style: italic;
       color: #f8fff8;
     }
-  </style>
+    @media (max-width: 760px) {
+      .page-home { padding-top: 0; }
+      .page-home header { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 12px 16px; }
+      .page-home .logo, .page-home h1, .page-home .header-actions { display: block; }
+      .page-home .header-actions { float: none; display: flex; flex-wrap: wrap; gap: 8px; margin-left: 0; }
+      .page-home .header-actions > button + button { margin-left: 0; }
+      .page-home nav { padding: 10px 16px; }
+      .page-home .layout { padding: 0 16px; }
+      .page-home main, .page-home aside { float: none; width: 100%; }
+      .page-home aside { position: static; }
+      #meta { max-height: none; overflow: visible; }
+      .portal-banner { margin-right: 16px; margin-left: 16px; }
+    }
+    @media (max-width: 480px) {
+      .page-home .layout { padding-right: 12px; padding-left: 12px; }
+      .portal-banner { min-height: 180px; margin-right: 12px; margin-left: 12px; padding: 24px 12px; }
+      .portal-banner h2.portal-title { font-size: clamp(1.35rem, 7vw, 2rem); }
+    }  </style>
 </head>
 <body class="page-home">
   <header>
